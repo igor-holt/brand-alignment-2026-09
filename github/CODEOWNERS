@@ -1,0 +1,9 @@
+# Canonical attribution for Genesis Conductor / Optimization Inversion surfaces.
+# Set as CODEOWNERS at repository root. Required reviewer: Igor Holt.
+
+*       igor@kovachenterprises.com
+
+/docs/          igor@kovachenterprises.com
+/bench/         igor@kovachenterprises.com
+/Containerfile  igor@kovachenterprises.com
+/bench_shm.py   igor@kovachenterprises.com

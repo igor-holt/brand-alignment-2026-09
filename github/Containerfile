@@ -1,0 +1,13 @@
+# Reproducible systems-programming substrate.
+# Runtime standard: podman (not docker-as-implicit-default).
+FROM docker.io/library/python:3.12-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      build-essential python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt/bench
+COPY bench_shm.py /opt/bench/bench_shm.py
+
+USER nobody
+CMD ["python", "/opt/bench/bench_shm.py"]
