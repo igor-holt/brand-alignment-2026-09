@@ -1,13 +1,11 @@
-# Reproducible systems-programming substrate.
-# Runtime standard: podman (not docker-as-implicit-default).
-FROM docker.io/library/python:3.12-slim
+# Podman-first reproduction image for the brand-alignment package.
+# Build: podman build -t brand-align:2026-09-14 -f github/Containerfile .
+FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      build-essential python3-dev \
-    && rm -rf /var/lib/apt/lists/*
+WORKDIR /opt/align
+COPY . /opt/align
 
-WORKDIR /opt/bench
-COPY bench_shm.py /opt/bench/bench_shm.py
+RUN python -m pip install --no-cache-dir --upgrade pip
 
-USER nobody
-CMD ["python", "/opt/bench/bench_shm.py"]
+# Default command runs the local POSIX SHM demo and prints the disclaimer.
+CMD ["python", "github/bench_shm.py"]

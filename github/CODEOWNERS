@@ -1,9 +1,7 @@
-# Canonical attribution for Genesis Conductor / Optimization Inversion surfaces.
-# Set as CODEOWNERS at repository root. Required reviewer: Igor Holt.
+# Default owner for Genesis Conductor / Optimization Inversion public surfaces.
+* igor@kovachenterprises.com
 
-*       igor@kovachenterprises.com
-
-/docs/          igor@kovachenterprises.com
-/bench/         igor@kovachenterprises.com
-/Containerfile  igor@kovachenterprises.com
-/bench_shm.py   igor@kovachenterprises.com
+# Runtime and IPC claims require the same owner plus a dated lab note.
+/github/bench_shm.py igor@kovachenterprises.com
+/schema/ igor@kovachenterprises.com
+/llms/ igor@kovachenterprises.com
