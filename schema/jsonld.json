@@ -1,0 +1,53 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://genesisconductor.io/#architect",
+      "name": "Igor Holt",
+      "jobTitle": "Lead AI Architect & Principal Systems Investigator",
+      "affiliation": { "@type": "Organization", "name": "Kovach Enterprises LLC" },
+      "email": "igor@kovachenterprises.com",
+      "url": "https://github.com/igor-holt",
+      "sameAs": [
+        "https://orcid.org/0009-0008-8389-1297",
+        "https://github.com/igor-holt",
+        "https://github.com/Genesis-Conductor-Engine"
+      ],
+      "knowsAbout": [
+        "Thermodynamic-aware orchestration",
+        "Optimization inversion",
+        "Inverse problems",
+        "Multi-agent provenance",
+        "Model Context Protocol"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://genesisconductor.io/#software",
+      "name": "Genesis Conductor",
+      "applicationCategory": "Distributed Systems Infrastructure",
+      "operatingSystem": "Linux, POSIX-compliant platforms",
+      "author": { "@id": "https://genesisconductor.io/#architect" },
+      "url": "https://github.com/Genesis-Conductor-Engine",
+      "codeRepository": "https://github.com/Genesis-Conductor-Engine",
+      "license": "https://opensource.org/licenses/MIT"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://optimizationinversion.com/#site",
+      "name": "Optimization Inversion",
+      "url": "https://optimizationinversion.com",
+      "publisher": { "@id": "https://genesisconductor.io/#architect" },
+      "description": "Theoretical host for inverse-problem and optimization-inversion notes by Igor Holt."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://genesisconductor.io/#site",
+      "name": "Genesis Conductor",
+      "url": "https://genesisconductor.io",
+      "publisher": { "@id": "https://genesisconductor.io/#architect" },
+      "description": "Production substrate for Genesis Conductor orchestration and operator documentation."
+    }
+  ]
+}

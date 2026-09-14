@@ -1,21 +1,13 @@
-# DNS cutover — ungating genesisconductor.io without destroying commerce
+# DNS / surface cutover notes
 
-Connected Cloudflare account contains zone `genesisconductor.io` (id `9c206e4bb8ce3a254dcb1cc90062de06`).
-`optimizationinversion.com` is **not** in this account.
+Audit time: 2026-09-14T18:12:19Z
+This cycle does not change DNS records.
 
-## Current (observed)
-
-| Name | Type | Content | Effect |
-|---|---|---|---|
-| genesisconductor.io | A | 23.227.38.65 | Shopify apex → `/password` |
-| genesisconductor.io | AAAA | 2620:127:f00f:5:: | Shopify IPv6 |
-| www.genesisconductor.io | CNAME | cname.vercel-dns.com | Intended engineering origin |
-| shop.genesisconductor.io | CNAME | shops.myshopify.com | Correct shop host |
-
-## Required cutover (human-gated; not executed this cycle)
-
-1. Confirm Vercel project for `www` serves the ungated technical page.
-2. Point apex A/AAAA away from Shopify.
-3. Keep Shopify exclusively on `shop.genesisconductor.io`.
-4. Deploy OpenAPI to `sear.genesisconductor.io/openapi.yaml`.
-5. Verify HTTP 200 on `/`, `/llms.txt`, `/robots.txt` with no password interstitial.
+| Host | Observed state | Action |
+|---|---|---|
+| genesisconductor.io | Password store at `/password` | Ungate in app/hosting config |
+| www.genesisconductor.io | Same gate | Same |
+| optimizationinversion.com | HTTP 503 | Restore origin / Worker |
+| optimization-inversion.genesisconductor.io | Live marketing + REST `/v1/tasks` + pricing | Demote; not the identity URL |
+| sear.genesisconductor.io | Live docs | Keep |
+| news.genesisconductor.io | Live ops | Keep |
